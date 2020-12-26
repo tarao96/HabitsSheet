@@ -13,8 +13,12 @@ class TasksController < ApplicationController
   
   def create
     @task = Task.new(task_params)
-    @task.save!
-    redirect_to tasks_url, notice: "習慣「#{@task.name}」を追加しました"
+    if @task.save
+      redirect_to tasks_url, notice: "習慣「#{@task.name}」を追加しました"
+    else
+      redirect_to new_task_path
+      flash[:notice] = "名称を入力してください。"
+    end
   end
 
   def edit
