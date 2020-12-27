@@ -11,6 +11,10 @@ gem 'jbuilder',     '2.7.0'
 gem 'will_paginate', '3.1.6'
 gem 'bcrypt'
 gem 'rails-i18n', '~> 5.1'
+gem 'slim-rails'
+gem 'html2slim'
+gem 'bootstrap'
+gem 'rails_autolink'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
@@ -41,6 +45,3 @@ end
 # Windows環境ではtzinfo-dataというgemを含める必要があります
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'slim-rails'
-gem 'html2slim'
-gem 'bootstrap'
