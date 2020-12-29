@@ -28,13 +28,14 @@ ja:
         date: 日付
         name: 身に付けたい習慣
         purpose: 目的
-        try: 今日の作戦
+        try: 今日の対策案
         review: 今日の評価
         reason: 評価の理由
         comment: 一言コメント
         check: チェックボックス
         created_at: 登録日時
         updated_at: 更新日時
+        past_try: 過去に試した対策
   date:
     abbr_day_names:
     - 日

@@ -1,6 +1,8 @@
 h1 チェックリスト一覧
 
-= link_to '新規登録', new_checklist_path, class: 'btn btn-primary'
+p 毎日の行動を記録して、工夫して改善していこう！
+
+= link_to '記録する', new_checklist_path, class: 'btn btn-primary'
 
 .mb-3
 table.table.table-hover
@@ -11,6 +13,7 @@ table.table.table-hover
             th = Checklist.human_attribute_name(:review)
             th
     tbody
+        = will_paginate @checklists, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'
         - @checklists.each do |checklist|
             tr
                 td = checklist.date
@@ -31,3 +34,12 @@ table.table.table-hover
                     readOnly: true,
                     score: checklist.review,
                     });
+.
+table.table-sm.table-hover
+    thead.thead-default
+        tr
+            th = Checklist.human_attribute_name(:past_try)
+    tbody
+        - @checklists.pluck(:try).uniq.each do |checklist|
+            tr
+                td = checklist
