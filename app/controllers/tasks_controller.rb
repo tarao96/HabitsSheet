@@ -15,10 +15,10 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params.merge(user_id: current_user.id))
     if @task.save
-      redirect_to tasks_url, notice: "習慣「#{@task.name}」を追加しました"
+      session[:task_id] = @task.id
+      redirect_to @task, notice: "習慣「#{@task.name}」を登録しました"
     else
-      redirect_to new_task_path
-      flash[:notice] = "名称を入力してください。"
+      render :new
     end
   end
 
@@ -38,7 +38,7 @@ class TasksController < ApplicationController
   private
   
   def task_params
-    params.require(:task).permit(:name, :description)
+    params.require(:task).permit(:name, :purpose)
   end
   
   def set_task

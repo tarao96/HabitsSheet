@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
  helper_method :current_user
+ helper_method :current_task
  before_action :login_required
  
  private
@@ -10,5 +11,9 @@ class ApplicationController < ActionController::Base
  
  def login_required
   redirect_to login_path unless current_user
+ end
+ 
+ def current_task
+  @current_task ||= Task.find_by(id: params[:task_id]) if params[:task_id]
  end
 end

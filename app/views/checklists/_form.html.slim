@@ -1,0 +1,29 @@
+= form_with model: checklist, local: true do |f|
+  .form-group
+    = f.label :date
+    = f.text_field :date, class: 'form-control', id: 'checklist_date'
+  .form-group
+    = f.label :try
+    = f.text_field :try, class: 'form-control', id: 'checklist_try'
+  .form-group
+  #star
+    = f.label :review
+    = f.hidden_field :review, id: 'review_star'
+    javascript:
+     $('#star').raty({
+      size: 36,
+      starOff: "#{asset_path('star-off.png')}",
+      starOn: "#{asset_path('star-on.png')}",
+      starHalf: "#{asset_path('star-half.png')}",
+      scoreName: 'checklist[review]',
+      half: true,
+     });
+  .form-group
+    = f.label :reason
+    = f.text_area :reason, class: 'form-control', id: 'checklist_reason'
+  .form-group
+    = f.label :comment
+    = f.text_area :comment, class: 'form-control', id: 'checklist_comment'
+  = f.submit nil, class: 'btn btn-primary'
+  
+ 

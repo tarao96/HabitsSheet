@@ -1,0 +1,6 @@
+h1 チェックリストの編集
+
+.nav.justify-content-end
+  = link_to '一覧', checklists_path, class: 'nav-link'
+    
+= render partial: 'form', locals: { checklist: @checklist }

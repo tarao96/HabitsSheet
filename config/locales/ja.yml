@@ -12,8 +12,8 @@ ja:
     attributes:
       task: 
         id: ID
-        name: 名称
-        description: 詳しい説明
+        name: 身に付けたい習慣
+        purpose: 目的
         created_at: 登録日時
         updated_at: 更新日時
       user:
@@ -22,6 +22,17 @@ ja:
         admin: 管理者権限
         password: パスワード
         password_confirmation: パスワード(確認)
+        created_at: 登録日時
+        updated_at: 更新日時
+      checklist:
+        date: 日付
+        name: 身に付けたい習慣
+        purpose: 目的
+        try: 今日の作戦
+        review: 今日の評価
+        reason: 評価の理由
+        comment: 一言コメント
+        check: チェックボックス
         created_at: 登録日時
         updated_at: 更新日時
   date:

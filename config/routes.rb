@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
@@ -8,5 +9,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'tasks#index'
-  resources :tasks
+  resources :tasks 
+  
+  resources :checklists
 end

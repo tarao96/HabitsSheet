@@ -1,0 +1,10 @@
+.nav.justify-content-end
+ = link_to 'チェックリスト一覧', checklists_path, class: 'nav-link'
+table.table.table-hover
+    tbody
+        tr
+            th = Checklist.human_attribute_name(:try)
+            td = @checklist.try
+            
+= link_to '編集', edit_checklist_path, class: 'btn btn-primary mr-3'
+= link_to '削除', @checklist, method: :delete, data: { confirm: "タスク「#{@checklist.try}」を削除します。よろしいですか？" }, class: 'btn btn-danger'

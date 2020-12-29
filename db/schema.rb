@@ -10,11 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201227061719) do
+ActiveRecord::Schema.define(version: 20201229113358) do
+
+  create_table "checklists", force: :cascade do |t|
+    t.integer "date"
+    t.string "try"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "task_id"
+    t.float "review"
+    t.text "reason"
+    t.boolean "check"
+    t.text "comment"
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.string "name"
-    t.text "description"
+    t.string "purpose"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
