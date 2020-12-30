@@ -1,5 +1,6 @@
 class Checklist < ApplicationRecord
-    
+    belongs_to :task
+   
     scope :recent, -> { order(created_at: :desc) }
     
     def task

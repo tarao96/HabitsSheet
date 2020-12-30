@@ -1,24 +1,48 @@
-h1 習慣の詳細
+h1 ="『#{@task.name}』"
+<br>
+h2 チェックリスト一覧
+<br>
+h3 毎日の行動を記録して、工夫して改善していこう！
+<br>
 
-.nav.justify-content-end
- = link_to '習慣一覧', tasks_path, class: 'nav-link'
+= link_to '記録する', new_checklist_path, class: 'btn btn-primary'
+
+.mb-3
 table.table.table-hover
+    thead.thead-default
+        tr
+            th = Checklist.human_attribute_name(:date)
+            th = Checklist.human_attribute_name(:try)
+            th = Checklist.human_attribute_name(:review)
+            th
     tbody
+        = will_paginate @checklists, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'
+        - @checklists.each do |checklist|
+            tr
+                td = checklist.date
+                td = checklist.try
+                #star-rate-checklist.id
+                td = checklist.review
+                td 
+                 = link_to '編集', edit_checklist_path(checklist), class: 'btn btn-primary mr-3'
+                 = link_to '削除', checklist, method: :delete, data: { confirm: "タスク「#{checklist.date}」を削除しました。" }, class: 'btn btn-danger'
+                
+                 javascript: 
+                    $('#star-rate-checklist.id').raty({
+                    size: 36,
+                    starOff: "#{asset_path('star-off.png')}",
+                    starOn: "#{asset_path('star-on.png')}",
+                    starHalf: "#{asset_path('star-half.png')}",
+                    half: true,
+                    readOnly: true,
+                    score: checklist.review,
+                    });
+.
+table.table-sm.table-hover
+    thead.thead-default
         tr
-            th = Task.human_attribute_name(:id)
-            td = @task.id
-        tr
-            th = Task.human_attribute_name(:name)
-            td = @task.name
-        tr 
-            th = Task.human_attribute_name(:purpose)
-            td = @task.purpose
-        tr
-            th = Task.human_attribute_name(:created_at)
-            td = @task.created_at
-        tr 
-            th = Task.human_attribute_name(:updated_at)
-            td = @task.updated_at
-            
-= link_to '編集', edit_task_path, class: 'btn btn-primary mr-3'
-= link_to '削除', @task, method: :delete, data: { confirm: "タスク「#{@task.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
+            th = Checklist.human_attribute_name(:past_try)
+    tbody
+        - @checklists.pluck(:try).uniq.each do |checklist|
+            tr
+                td = checklist

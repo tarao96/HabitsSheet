@@ -6,6 +6,8 @@ class TasksController < ApplicationController
   end
 
   def show
+    @task = Task.find_by(id: params[:id])
+    @checklists = @task.checklists.paginate(page: params[:page],per_page:5)
   end
 
   def new

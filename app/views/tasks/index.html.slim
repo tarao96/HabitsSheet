@@ -1,4 +1,5 @@
 h1 習慣一覧
+
 p 身に付けたい習慣を一つだけ決めて、継続していこう！
 
 = link_to '新規登録', new_task_path, class: 'btn btn-primary'
@@ -16,7 +17,7 @@ table.table.table-hover
                 td = link_to task.name, task
                 td = task.created_at
                 td 
-                 = link_to 'チェックリスト', checklists_url, class: 'btn btn-success mr-3'
+                 = link_to 'チェックリスト', task_path(task), class: 'btn btn-success mr-3'
                  = link_to '編集', edit_task_path(task), class: 'btn btn-primary mr-3'
                  = link_to '削除', task, method: :delete, data: { confirm: "タスク「#{task.name}」を削除しました。" }, class: 'btn btn-danger'
                 
