@@ -15,8 +15,6 @@ gem 'slim-rails'
 gem 'html2slim'
 gem 'bootstrap'
 gem 'rails_autolink'
-gem 'fullcalendar-rails'
-gem 'momentjs-rails'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
