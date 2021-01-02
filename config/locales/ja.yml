@@ -36,6 +36,7 @@ ja:
         created_at: 登録日時
         updated_at: 更新日時
         past_try: 過去に試した対策
+        like: いいね！
   date:
     abbr_day_names:
     - 日

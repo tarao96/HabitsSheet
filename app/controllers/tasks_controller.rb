@@ -8,6 +8,8 @@ class TasksController < ApplicationController
   def show
     @task = Task.find_by(id: params[:id])
     @checklists = @task.checklists.paginate(page: params[:page],per_page:5)
+    session[:task_id] = @task.id
+    @task.save!
   end
 
   def new
@@ -17,7 +19,6 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params.merge(user_id: current_user.id))
     if @task.save
-      session[:task_id] = @task.id
       redirect_to @task, notice: "習慣「#{@task.name}」を登録しました"
     else
       render :new

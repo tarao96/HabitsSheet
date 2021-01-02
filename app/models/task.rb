@@ -12,4 +12,8 @@ class Task < ApplicationRecord
     def validate_name_not_including_comma
         errors.add(:name, 'にカンマを含めることはできません') if name&.include?(',')
     end
+    
+    def liked_by?(user)
+        likes.where(user_id: user.id).exists?
+    end
 end
