@@ -13,7 +13,8 @@ class ChecklistsController < ApplicationController
   end
 
   def create
-     @checklist = Checklist.new(checklist_params.merge(task_id: current_task.id))
+     @checklist = Checklist.new(checklist_params)
+     @checklist.task_id = current_task.id
      @checklist.save
      redirect_to checklists_url, notice: "チェックリスト「#{@checklist.date}」を登録しました"
   end

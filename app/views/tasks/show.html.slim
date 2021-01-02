@@ -1,9 +1,7 @@
-h1 ="『#{@task.name}』"
-<br>
-h2 チェックリスト一覧
-<br>
+h1 チェックリスト一覧
 h3 毎日の行動を記録して、工夫して改善していこう！
 <br>
+h1 ="『#{@task.name}』"
 
 = link_to '記録する', new_checklist_path, class: 'btn btn-primary'
 
@@ -44,5 +42,6 @@ table.table-sm.table-hover
             th = Checklist.human_attribute_name(:past_try)
     tbody
         - @checklists.pluck(:try).uniq.each do |checklist|
-            tr
+             tr
                 td = checklist
+             
