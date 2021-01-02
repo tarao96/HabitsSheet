@@ -2,7 +2,7 @@ class ChecklistsController < ApplicationController
   before_action :set_checklist, only: [:show, :edit, :update, :destroy]
   
   def index
-    @checklists = Checklist.all.order(created_at: :desc).paginate(page: params[:page],per_page:5)
+    @checklists = current_task.checklists.order(created_at: :desc).paginate(page: params[:page],per_page:5)
   end
   
   def new
@@ -14,12 +14,13 @@ class ChecklistsController < ApplicationController
 
   def create
      @checklist = Checklist.new(checklist_params.merge(task_id: current_task.id))
-     @checklist.save!
+     @checklist.save
      redirect_to checklists_url, notice: "チェックリスト「#{@checklist.date}」を登録しました"
   end
   
   def update
     @checklist.update!(checklist_params)
+    @checklist.save
     redirect_to checklists_url, notice: "チェック表「#{@checklist.date}」を更新しました。"
   end
 

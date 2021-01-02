@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
  end
  
  def current_task
-  @current_task ||= Task.find_by(id: session[:task_id]) if session[:task_id]
+  @current_task = Task.find_by(id: session[:task_id]) 
  end
 end
