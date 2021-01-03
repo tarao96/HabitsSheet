@@ -4,6 +4,10 @@ h3 毎日の行動を記録して、工夫して改善していこう！
 
 
 = link_to '記録する', new_checklist_path, class: 'btn btn-primary'
+.search-form
+= form_tag(checklists_path, method: :get) do
+    = text_field_tag :search
+    = submit_tag 'Search', :name => nil
 
 .mb-3
 table.table.table-hover

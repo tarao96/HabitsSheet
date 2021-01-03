@@ -3,7 +3,12 @@ h3 毎日の行動を記録して、工夫して改善していこう！
 <br>
 h1 ="『#{@task.name}』"
 
-= link_to '記録する', new_checklist_path, class: 'btn btn-primary'
+= link_to '記録する', new_checklist_path, class: 'btn btn-primary' 
+<br>
+.search-form
+= form_tag(task_path, method: :get) do
+    = text_field_tag :search
+    = submit_tag '検索', :name => nil
 
 .mb-3
 table.table.table-hover
