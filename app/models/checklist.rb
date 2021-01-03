@@ -14,5 +14,15 @@ class Checklist < ApplicationRecord
         errors.add(:name, 'にカンマを含めることはできません') if name&.include?(',')
     end
     
+    def liked_by?(user)
+        likes.where(user_id: user.id).exists?
+    end
     
+    def self.search(search)
+        if search
+            Checklist.where(['try LIKE ?',"%#{search}%"])
+        else
+            Checklist.all
+        end
+    end
 end

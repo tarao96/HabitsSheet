@@ -2,7 +2,7 @@ class ChecklistsController < ApplicationController
   before_action :set_checklist, only: [:show, :edit, :update, :destroy]
   
   def index
-    @checklists = current_task.checklists.order(created_at: :desc).paginate(page: params[:page],per_page:5)
+    @checklists = current_task.checklists.order(created_at: :desc).paginate(page: params[:page],per_page:10).search(params[:search])
   end
   
   def new

@@ -1,24 +1,42 @@
-# README
+1.アプリケーションの概要
+　このアプリケーションは習慣を身に付けたい人のための、行動を記録することができるサービスです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+2.使用技術
+　・開発環境： AWS
+　・言語：HTML, CSS, Ruby 2.6.3
+　・フレームワーク： Ruby on Rails 5.1.6, Bootstrap 4.5.3
+　・テンプレートエンジン： slim 4.1.0
+　・データベース： SQlite3 1.3.13
+　・ツール： Git, Bitbucket
+　・本番環境： heroku 7.47.5
+　・テスト： RSpec 3.7
+　
+3.アプリケーションの機能
+　・新規登録
+　・ユーザーのログイン、ログアウト
+　・投稿
+　・投稿一覧
+　・検索機能
+　・ユーザー一欄
+　・ユーザーの編集
+　・投稿の編集、削除
+　・ページネーション(will_paginate)
+　
+4.工夫した点
+　・RSpecによるバグの検知、未然防止を行った点。
+　・テンプレートエンジンであるSlimとBootstrapの書き方に慣れるためにこのアプリを作ってみました。
+　・星評価のjavascriptも試してみた。
+　
+5.制作にあたって苦労した点
+　・アソシエーション（モデルの関連付け）。
+　　　taskモデルとchecklistモデルの関連付けをいじっている間に複雑になってしまい、苦労した。
+　　　最終的には、シンプルな構造で書き直すことで解決。
+　　
+6.学んでいること
+　・SQLを中心としたデータベースまわりの知識。
+　　　Railsを使用することでSQLの理解が浅くてもアプリケーションを形としては開発できてしまっていたので、
+　　　裏でどのようなSQL文が発行されているかなどの理解に努めている。
+　
+7.この先やってみたいこと
+　・実際にユーザーに使ってもらえるサービスに関わりたい。
+　・先々はプロダクト制作の中心メンバーとして、サービスに関わっていきたい。
