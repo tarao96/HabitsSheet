@@ -22,7 +22,7 @@ class ChecklistsController < ApplicationController
   def update
     @checklist.update!(checklist_params)
     @checklist.save
-    redirect_to checklists_url, notice: "チェック表「#{@checklist.date}」を更新しました。"
+    redirect_to checklists_url, notice: "「#{@checklist.date}」を更新しました。"
   end
 
   def edit
@@ -30,7 +30,7 @@ class ChecklistsController < ApplicationController
 
   def destroy
     @checklist.destroy
-    redirect_to checklists_url, notice: "チェック表「#{@checklist.date}」を削除しました。"
+    redirect_to checklists_url, notice: "「#{@checklist.date}」を削除しました。"
   end
   
   private

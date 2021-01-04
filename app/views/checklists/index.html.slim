@@ -27,7 +27,7 @@ table.table.table-hover
                 td = checklist.review
                 td 
                  = link_to '編集', edit_checklist_path(checklist), class: 'btn btn-primary mr-3'
-                 = link_to '削除', checklist, method: :delete, data: { confirm: "タスク「#{checklist.date}」を削除しました。" }, class: 'btn btn-danger'
+                 = link_to '削除', checklist, method: :delete, data: { confirm: "「#{checklist.date}」を削除しました。" }, class: 'btn btn-danger'
                 
                  javascript: 
                     $('#star-rate-checklist.id').raty({
